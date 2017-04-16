@@ -9,6 +9,8 @@ var keyboard = new THREEx.KeyboardState();
 var key;
 var shift=0;
 
+var F=1;
+
 init();
 animate();
 
@@ -186,7 +188,9 @@ function move()
     var dt = clock.getDelta();
     for (var i = 2; i < planets.length - 1; i++)
     {
-        planets[i].angle1 += dt * planets[i].k;
+        
+        planets[i].angle1 += dt * planets[i].k*F;
+
 
         /*planets[i].sphere.position.x = planets[i].radius * Math.cos(planets[i].angle1);
         planets[i].sphere.position.z = planets[i].radius * Math.sin(planets[i].angle1);
@@ -240,7 +244,6 @@ function move()
     mtrack.position.copy(planets[4].sphere.position);*/
 
 }
-
 function Track()
 {
     for (var i = 2; i < planets.length - 1; i++)
@@ -307,6 +310,12 @@ function KeyboardState()
         key = 4;
         shift = 0;
     }
+    else if (keyboard.pressed("8"))
+    {key =8;
+        shift = 0;}
+   /*else if (keyboard.pressed("9"))
+    {key =9;
+        shift = 0;}*/
     if (key === 0)
     {
         camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight,1,40000);
@@ -349,6 +358,18 @@ function KeyboardState()
         if ((keyboard.pressed("l"))&&(key!==0))
             shift += 0.05;
     }
+    else if (key == 8)
+    {
+       if ((keyboard.pressed("p")) && (key !== 0))
+            F += 0.1;
+        if ((keyboard.pressed("m"))&&(key!==0))
+            F-=0.1;
+    }
+    /*else if (key == 9)
+    {
+        F-=5;
+    }*/
+        
 }
 
 function rotate(i)
