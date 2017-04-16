@@ -310,12 +310,15 @@ function KeyboardState()
         key = 4;
         shift = 0;
     }
-    else if (keyboard.pressed("8"))
-    {key =8;
-        shift = 0;}
-   /*else if (keyboard.pressed("9"))
-    {key =9;
-        shift = 0;}*/
+    else if (keyboard.pressed("p"))
+    {
+         F += 0.1;
+    }
+   else if (keyboard.pressed("m"))
+    {
+     F-=0.1;
+    }
+    
     if (key === 0)
     {
         camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight,1,40000);
@@ -358,17 +361,6 @@ function KeyboardState()
         if ((keyboard.pressed("l"))&&(key!==0))
             shift += 0.05;
     }
-    else if (key == 8)
-    {
-       if ((keyboard.pressed("p")) && (key !== 0))
-            F += 0.1;
-        if ((keyboard.pressed("m"))&&(key!==0))
-            F-=0.1;
-    }
-    /*else if (key == 9)
-    {
-        F-=5;
-    }*/
         
 }
 
