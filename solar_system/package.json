@@ -1,0 +1,8 @@
+{
+    "name": "solar_system",
+    "version": "1.0.0",
+    "keywords": ["util", "functional", "server", "client", "browser"],
+    "author": "blago",
+    "contributors": [],
+    "dependencies": {}
+}
